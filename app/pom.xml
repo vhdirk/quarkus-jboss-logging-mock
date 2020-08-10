@@ -3,9 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.aloxy</groupId>
-  <artifactId>quarkus-jboss-logging-mock</artifactId>
+  <artifactId>app</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <parent>
+    <groupId>io.aloxy</groupId>
+    <artifactId>quarkus-jboss-logging-mock</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -19,10 +23,6 @@
     <quarkus.platform.version>1.6.1.Final</quarkus.platform.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
   </properties>
-  <modules>
-    <module>common</module>
-    <module>app</module>
-  </modules>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -35,6 +35,11 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>io.aloxy</groupId>
+      <artifactId>common</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>

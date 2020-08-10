@@ -8,14 +8,17 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
+import javax.inject.Inject;
+
 @QuarkusTest
 public class GreetingResourceTest {
 
-    @InjectMock
-    Logger logger;
+    @Inject Logger logger;
 
     @Test
     public void testHelloEndpoint() {
+        logger.info("Hello to logger from test");
+
         given()
           .when().get("/hello")
           .then()
